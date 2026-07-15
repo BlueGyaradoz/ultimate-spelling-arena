@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Spelling Arena</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="rankup-overlay" class="rankup-overlay hidden">
+        <div class="rankup-card">
+            <div class="flare-ring"></div>
+            <h2 class="rankup-announcement">RANK UP</h2>
+            <div class="divider-line"></div>
+            <p class="rankup-subtitle">Tier Ascension</p>
+            <div id="rankup-new-name" class="rankup-glow-text">IRON</div>
+        </div>
+    </div>
+
+    <div class="app-container">
+        
+        <nav id="app-sidebar" class="sidebar hidden">
+            <div class="sidebar-user">
+                <div class="avatar">👤</div>
+                <div id="sidebar-username">Player</div>
+                <div id="sidebar-rank" class="rank-badge">Aluminum</div>
+                <div id="sidebar-grade-badge" class="grade-badge">Grade: K</div>
+                <div id="sidebar-daily-streak" class="daily-streak-badge">🔥 1 Day Streak</div>
+            </div>
+            <ul class="sidebar-links">
+                <li><button id="nav-home-btn" class="nav-btn active">🏠 Home Screen</button></li>
+                <li><button id="nav-profile-btn" class="nav-btn">👤 My Profile</button></li>
+                <li><button id="nav-leaderboard-btn" class="nav-btn">🏆 Leaderboard</button></li>
+                <li><button id="nav-settings-btn" class="nav-btn">⚙️ Settings</button></li>
+            </ul>
+            <div class="sidebar-footer">Status: Active ⚡</div>
+        </nav>
+
+        <main class="main-content">
+
+            <div id="welcome-screen" class="card vibrant-bg">
+                <h1 class="welcome-title">SPELLING<br>ARENA</h1>
+                <p class="welcome-subtitle">Master Your Vocabulary</p>
+                
+                <div class="login-form">
+                    <input type="text" id="login-username" placeholder="Create Username..." autocomplete="off">
+                    <select id="login-grade-select" class="custom-select light-select">
+                        <option value="K">Kindergarten</option>
+                        <option value="1">1st Grade</option>
+                        <option value="2">2nd Grade</option>
+                        <option value="3">3rd Grade</option>
+                        <option value="4">4th Grade</option>
+                        <option value="5">5th Grade</option>
+                        <option value="6">6th Grade</option>
+                        <option value="7">7th Grade</option>
+                        <option value="8">8th Grade</option>
+                        <option value="9">9th Grade</option>
+                        <option value="10">10th Grade</option>
+                        <option value="11">11th Grade</option>
+                        <option value="12">12th Grade</option>
+                    </select>
+                </div>
+                
+                <button id="welcome-start-btn" class="pulse-btn">Enter Arena 🎮</button>
+            </div>
+
+            <div id="home-screen" class="card hidden">
+    <h1>Spelling & Vocab Arena</h1>
+    <p class="subtitle">Select your game configurations below</p>
+    
+    <h3>Select Game Mode</h3>
+    <div class="selection-grid" id="mode-selection">
+        <button class="select-btn" data-type="mode" data-value="normal">
+            <strong>Normal</strong><br><small>Endless Practice</small>
+        </button>
+        <button class="select-btn" data-type="mode" data-value="marathon">
+            <strong>Marathon</strong><br><small>Sudden Death</small>
+        </button>
+        <button class="select-btn" data-type="mode" data-value="speedrun">
+            <strong>Speedrun</strong><br><small>300s Blitz</small>
+        </button>
+    </div>
+</div>
+
+            <div id="profile-screen" class="card hidden">
+                <h1 id="profile-user-title">My Training Profile</h1>
+                
+                <div class="xp-container">
+                    <div class="xp-header">
+                        <span class="profile-rank-label">Rank: <strong id="profile-rank-val">Aluminum</strong></span>
+                        <span id="profile-xp-text">0 / 100 XP</span>
+                    </div>
+                    <div class="xp-bar-bg">
+                        <div id="profile-xp-bar" class="xp-bar-fill" style="width: 0%;"></div>
+                    </div>
+                    <p class="xp-sub-text">+10 XP per correct answer | -1 XP per error</p>
+                </div>
+
+                <div class="streaks-display-container">
+                    <div class="streak-mini-card">
+                        <span class="streak-title-lbl">🔥 Daily Log Streak</span>
+                        <span id="profile-daily-streak-val" class="streak-num-val">1 Day</span>
+                    </div>
+                    <div class="streak-mini-card">
+                        <span class="streak-title-lbl">⚡ Current Answer Streak</span>
+                        <span id="profile-curr-streak-val" class="streak-num-val">0</span>
+                    </div>
+                    <div class="streak-mini-card">
+                        <span class="streak-title-lbl">🏆 Best Answer Streak</span>
+                        <span id="profile-best-streak-val" class="streak-num-val">0</span>
+                    </div>
+                </div>
+
+                <div class="lb-points-badge-card">
+                    🥇 Leaderboard Wins: <strong id="profile-lb-points">0</strong> Points
+                </div>
+
+                <div class="custom-word-section">
+                    <h3>➕ Add Custom Vocabulary</h3>
+                    <div class="custom-word-inputs">
+                        <input type="text" id="custom-word-input" placeholder="Type word...">
+                        <input type="text" id="custom-def-input" placeholder="Type definition...">
+                        <button id="add-custom-word-btn">Save</button>
+                    </div>
+                </div>
+
+                <div class="social-section">
+                    <h3>👥 Friends Hub</h3>
+                    <div class="friend-input-container">
+                        <input type="text" id="friend-search" placeholder="Enter player username...">
+                        <button id="add-friend-btn">+ Add</button>
+                    </div>
+                    <div id="friend-list" class="database-list social-list">
+                        <p class="empty-db-msg">No friends added yet.</p>
+                    </div>
+                </div>
+
+                <h3>📊 Practice Time Analytics</h3>
+                <div class="stats-grid">
+                    <div class="time-stat-card">
+                        <span class="time-label">Today</span>
+                        <span id="stat-day" class="time-value">0m</span>
+                    </div>
+                    <div class="time-stat-card">
+                        <span class="time-label">This Week</span>
+                        <span id="stat-week" class="time-value">0m</span>
+                    </div>
+                    <div class="time-stat-card">
+                        <span class="time-label">This Month</span>
+                        <span id="stat-month" class="time-value">0m</span>
+                    </div>
+                </div>
+
+                <div class="database-section">
+                    <div class="db-header-row">
+                        <h3>📚 My Saved Vocabulary (<span id="db-count">0</span> words)</h3>
+                        <button id="quiz-saved-btn" class="saved-quiz-action-btn">🎯 Quiz My Words</button>
+                    </div>
+                    <div id="database-list" class="database-list">
+                        <p class="empty-db-msg">No words saved yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="leaderboard-screen" class="card hidden">
+                <h1>Arena Leaderboards</h1>
+                <div class="blitz-timer-container">
+    ⚡ Daily Blitz Reset In: <span id="lb-countdown">24:00:00</span>
+</div>
+
+<div class="lb-tabs">
+    <button id="tab-live" class="tab-btn active">Live Daily Blitz</button>
+    ...
+                    <button id="tab-xp-forever" class="tab-btn">XP Forever</button>
+                    <button id="tab-pts-forever" class="tab-btn">Points Forever</button>
+                </div>
+
+                <div id="leaderboard-list" class="database-list lb-list-wrapper">
+                    </div>
+            </div>
+
+            <div id="settings-screen" class="card hidden">
+                <h1>Game Settings</h1>
+                <p class="subtitle">System Parameters and Account Management</p>
+                
+                <div class="settings-group locked-grade-display-box">
+                    <span class="lock-icon">🔒</span>
+                    <div>
+                        <strong>Grade Level Status:</strong>
+                        <div id="settings-grade-status-text" class="status-grade-highlight">Grade K</div>
+                    </div>
+                </div>
+                <p class="settings-tip">🚀 Grade adjustments are entirely performance-driven. Get 10 correct answers in a row to level up, or drop a 15-answer wrong streak to down-grade.</p>
+
+                <hr class="settings-divider">
+
+                <div class="settings-group text-left">
+                    <h3>Account Controls</h3>
+                    <p class="settings-tip">Need to switch accounts or update your initialization parameters?</p>
+                    <button id="settings-logout-btn" class="logout-action-btn">🚪 Log Out / Change User</button>
+                </div>
+            </div>
+
+            <div id="game-screen" class="card hidden relative-card">
+                <button id="save-word-btn" title="Save word to my database">+</button>
+
+                <div class="game-header">
+                    <button id="back-to-menu" class="small-btn">← Quit</button>
+                    <div id="timer-display" class="stat-badge hidden">Time: <span id="timer">300</span>s</div>
+                    <div class="stat-badge">Score: <span id="score">0</span></div>
+                    <div id="streak-display" class="stat-badge hidden">Streak: <span id="streak">0</span></div>
+                </div>
+
+                <hr>
+
+                <div class="display-section">
+                    <button id="speak-btn" class="action-btn-main">🔊 Repeat Word</button>
+                    <p id="definition-display">Loading definition...</p>
+                </div>
+
+                <div class="input-section">
+                    <input type="text" id="user-input" placeholder="Type the word here..." autocomplete="off" disabled>
+                    <button id="submit-btn">Submit</button>
+                </div>
+
+                <p id="feedback" class="feedback"></p>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
